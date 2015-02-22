@@ -1,0 +1,27 @@
+﻿@model float
+
+@{
+    ViewBag.Title = "square";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section scripts
+{
+    @Scripts.Render("~/Scripts/default/triangle-square.js")
+}
+
+<h2>triangle square</h2>
+
+<p>
+    @{
+        float square = Model;        
+    }
+        
+    <h3>        
+        <span class="square" style="color: @ViewBag.Color">@square</span>        
+    </h3>
+
+    <label>
+        Change color!
+    </label>
+</p>

@@ -1,0 +1,18 @@
+﻿@model MvcApplication1.Models.user
+
+@{
+    Layout = null;
+}
+
+<li>@Html.ActionLink("Home", "Index", "Home")</li>
+
+@if (Model != null)
+{
+    <li class="profile-email">@Model.email</li>
+    <li>@Html.ActionLink("Logout", "Logout", "Login")</li>
+}
+else
+{
+    <li>@Html.ActionLink("Login", "Login", "Login")</li>
+    <li>@Html.ActionLink("Register", "Register", "User")</li>
+}
