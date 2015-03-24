@@ -49,6 +49,9 @@
     <Reference Include="Microsoft.Web.Mvc">
       <HintPath>..\packages\Mvc4Futures.4.0.20710.0\lib\net40\Microsoft.Web.Mvc.dll</HintPath>
     </Reference>
+    <Reference Include="MsSqlMetaDataProvider">
+      <HintPath>..\packages\MsSqlMetaDataProvider.1.0.0.0\lib\Net40\MsSqlMetaDataProvider.dll</HintPath>
+    </Reference>
     <Reference Include="Ninject">
       <HintPath>..\packages\Ninject.3.2.2.0\lib\net45-full\Ninject.dll</HintPath>
     </Reference>
@@ -168,33 +171,39 @@
     <Compile Include="Global\BaseController.cs" />
     <Compile Include="Global\Mapper\CommonMapper.cs" />
     <Compile Include="Global\Mapper\IMapper.cs" />
-    <Compile Include="Models\ASPNETModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ASPNETModel.Context.tt</DependentUpon>
+    <Compile Include="Models\Book.cs">
+      <DependentUpon>BookShopModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\ASPNETModel.cs">
+    <Compile Include="Models\BookShopModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ASPNETModel.tt</DependentUpon>
+      <DependentUpon>BookShopModel.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\ASPNETModel.Designer.cs">
+    <Compile Include="Models\BookShopModel.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ASPNETModel.edmx</DependentUpon>
+      <DependentUpon>BookShopModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BookShopModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BookShopModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\User.cs">
+      <DependentUpon>BookShopModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\user.Validate.cs" />
     <Compile Include="Models\UserRepository\IUserRepository.cs" />
-    <Compile Include="Models\user.cs">
-      <DependentUpon>ASPNETModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\UserRepository\UserRepository.cs" />
-    <Compile Include="Models\userrole.cs">
-      <DependentUpon>ASPNETModel.tt</DependentUpon>
+    <Compile Include="Models\UserRole.cs">
+      <DependentUpon>BookShopModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ViewModels\LoginView.cs" />
     <Compile Include="Models\ViewModels\ValidEmailAttribute.cs" />
     <Compile Include="Models\ViewModels\ViewUser.cs" />
+    <Compile Include="Models\Writer.cs">
+      <DependentUpon>BookShopModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="NavigationRoutes\INavigationRouteFilter.cs" />
     <Compile Include="NavigationRoutes\NamedRoute.cs" />
     <Compile Include="NavigationRoutes\NavigationExtensions.cs" />
@@ -210,27 +219,27 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <EntityDeploy Include="Models\ASPNETModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ASPNETModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
     <Content Include="Content\Welcome.html" />
-    <Content Include="Models\ASPNETModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ASPNETModel.edmx</DependentUpon>
-      <LastGenOutput>ASPNETModel.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\ASPNETModel.edmx.diagram">
-      <DependentUpon>ASPNETModel.edmx</DependentUpon>
-    </Content>
-    <Content Include="Models\ASPNETModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ASPNETModel.edmx</DependentUpon>
-      <LastGenOutput>ASPNETModel.cs</LastGenOutput>
-    </Content>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <EntityDeploy Include="Models\BookShopModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>BookShopModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\BookShopModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>BookShopModel.edmx</DependentUpon>
+      <LastGenOutput>BookShopModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\BookShopModel.edmx.diagram">
+      <DependentUpon>BookShopModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\BookShopModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>BookShopModel.edmx</DependentUpon>
+      <LastGenOutput>BookShopModel.cs</LastGenOutput>
+    </Content>
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -266,12 +275,12 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\User\Users.cshtml" />
-    <Content Include="Views\User\Index.cshtml" />
     <Content Include="Views\User\Register.cshtml" />
     <Content Include="Views\Home\UserLogin.cshtml" />
     <Content Include="Views\Login\Login.cshtml" />
     <Content Include="Views\Home\TriangleSquare.cshtml" />
     <Content Include="Views\Shared\_html5shiv.cshtml" />
+    <Content Include="Views\User\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -15,9 +15,6 @@
     width: 70px;
 }
 
-.profile-email{
-    padding-top: 9px;
-}
 /* Styles for validation helpers
 -----------------------------------------------------------*/
 .field-validation-error {
@@ -40,4 +37,8 @@
 
 .validation-summary-valid {
     display: none;
+}
+
+.color{
+    display: inline-block;
 }

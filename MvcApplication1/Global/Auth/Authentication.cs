@@ -59,9 +59,9 @@ namespace MvcApplication1.Global.Auth
             
         #region IAuthentication Members
 
-        public user Login(string login, string password, bool isPersistent)
+        public User Login(string login, string password, bool isPersistent)
         {
-            user retUser = Repository.Login(login, password);
+            User retUser = Repository.Login(login, password);
 
             if (retUser != null)
             {
@@ -97,9 +97,9 @@ namespace MvcApplication1.Global.Auth
             HttpContext.Response.Cookies.Set(authCookie);
         }
 
-        public user Login(string login)
+        public User Login(string login)
         {
-            user retUser = Repository.Login(login);
+            User retUser = Repository.Login(login);
 
             if (retUser != null)
             {

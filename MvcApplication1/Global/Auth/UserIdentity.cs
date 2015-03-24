@@ -9,7 +9,7 @@ namespace MvcApplication1.Global.Auth
 {
     public class UserIdentity : IIdentity, IUserProvider
     {
-        public user User { get; set; }
+        public  User User { get; set; }
 
         public string Name
         {
@@ -17,7 +17,7 @@ namespace MvcApplication1.Global.Auth
             {
                 if (IsAuthenticated)
                 {
-                    return User.email;
+                    return User.Email;
                 }
                 return "anonym";
             }            
@@ -25,7 +25,7 @@ namespace MvcApplication1.Global.Auth
 
         public string AuthenticationType
         {
-            get { return typeof (user).ToString(); }
+            get { return typeof (User).ToString(); }
         }
 
         public bool IsAuthenticated

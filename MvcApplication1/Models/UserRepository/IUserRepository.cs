@@ -4,26 +4,26 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MvcApplication1.Models;
+using System.Web.Providers.Entities;
 
 namespace MvcApplication1.Models
 {
- 
     public interface IUserRepository
     {
-        IQueryable<user> Users { get; } 
+        IQueryable<User> Users { get; } 
 
-        bool CreateUser(user instance);
+        bool CreateUser(User instance);
 
-        bool UpdateUser(user instance);
+        bool UpdateUser(User instance);
 
         bool RemoveUser(int userID);
 
-        user GetUser(string email);
+        User GetUser(string email);
 
-        user GetUser(int id);
-        user Login(string email, string password);
+        User GetUser(int id);
+        User Login(string email, string password);
 
-        user Login(string email);
-        string GetUserRole(user currUser);
+        User Login(string email);
+        string GetUserRole(User currUser);
     }
 }

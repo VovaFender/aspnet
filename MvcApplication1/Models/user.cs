@@ -12,37 +12,20 @@ namespace MvcApplication1.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class user
+    public partial class User
     {
-        public int id { get; set; }
-        public int user_role { get; set; }
-        public string password { get; set; }
-        public string email { get; set; }
-        public System.DateTime birth_date { get; set; }
+        public int ID { get; set; }
+        public string Name { get; set; }
+        public int User_Role { get; set; }
+        public string Password { get; set; }
+        public string Email { get; set; }
+        public Nullable<System.DateTime> BirthDate { get; set; }
     
-        public virtual userrole userrole { get; set; }
+        public virtual UserRole UserRole { get; set; }
 
-        public bool InRoles(string roles)
+        public bool InRoles(string checkRole)
         {
-            UserRepository repository = new UserRepository();
-
-            if (string.IsNullOrWhiteSpace(roles))
-            {
-                return false;
-            }
-
-            var acceptedRolesArray = roles.Split(new []{","}, StringSplitOptions.RemoveEmptyEntries);
-            var currUserRole = repository.GetUserRole(this);
-
-            foreach (var role in acceptedRolesArray)
-            {
-                var hasRole = string.Compare(role, currUserRole) == 0;
-                if (hasRole)
-                {
-                    return true;                    
-                }                
-            }
-            return false;
+            return true;
         }
     }
 }

@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Providers.Entities;
 using MvcApplication1.Models;
+using User = MvcApplication1.Models.User;
 
 namespace MvcApplication1.Global.Auth
 {
@@ -15,9 +16,9 @@ namespace MvcApplication1.Global.Auth
     {
         HttpContext HttpContext { get; set; }
         IPrincipal CurrentUser { get; set; }
-        user Login(string login, string password, bool isPersistent);
+        User Login(string login, string password, bool isPersistent);
 
-        user Login(string login);
+        User Login(string login);
 
         void LogOut();
     }

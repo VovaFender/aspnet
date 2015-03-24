@@ -6,6 +6,7 @@ using System.Web.Providers.Entities;
 using AutoMapper;
 using MvcApplication1.Models;
 using MvcApplication1.Models.ViewModels;
+using User = MvcApplication1.Models.User;
 
 namespace MvcApplication1.Mappers
 {
@@ -13,14 +14,15 @@ namespace MvcApplication1.Mappers
     {
 
         static CommonMapper()
-        {
-            Mapper.CreateMap<user, ViewUser>()
-                .ForMember(d => d.BirthDateDay, src => src.MapFrom(s => s.birth_date.Day))
-                .ForMember(d => d.BirthDateMonth, src => src.MapFrom(s => s.birth_date.Month))
-                .ForMember(d => d.BirthDateYear, src => src.MapFrom(s => s.birth_date.Year));
-            Mapper.CreateMap<ViewUser, user>()
-                .ForMember(d => d.id, s => s.Ignore())
-                .ForMember(dest => dest.birth_date, 
+        {            
+            Mapper.CreateMap<User, ViewUser>()
+                .ForMember(d => d.BirthDateDay, src => src.MapFrom(s => s.BirthDate.Value.Day ))
+                .ForMember(d => d.BirthDateMonth, src => src.MapFrom(s => s.BirthDate.Value.Month ))
+                .ForMember(d => d.BirthDateYear, src => src.MapFrom(s => s.BirthDate.Value.Year));
+
+            Mapper.CreateMap<ViewUser, User>()
+                .ForMember(d => d.ID, s => s.Ignore())
+                .ForMember(dest => dest.BirthDate, 
                             opt => opt.MapFrom(src => new DateTime(src.BirthDateYear, src.BirthDateMonth, src.BirthDateDay)));
         }
         

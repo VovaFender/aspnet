@@ -14,7 +14,7 @@ namespace MvcApplication1.Global
         [Inject]
         public IAuthentication Auth { get; set; }
 
-        public user CurrentUser
+        public User CurrentUser
         {
             get { return ((IUserProvider)Auth.CurrentUser.Identity).User; }
         }

@@ -1,5 +1,5 @@
 ﻿function TriangleSquare() {
-    _this = this;
+    self = this;
     var x;
     var oldColor;
 
@@ -19,15 +19,11 @@
         });
     }
     
-    this.saySomething = function (id) {        
-        message("Changed!");
-    }
-    
 }
 
 var functionName = null;
+
 $().ready(function () {
     functionName = new TriangleSquare();
-    functionName.init();
-    
+    functionName.init();        
 });

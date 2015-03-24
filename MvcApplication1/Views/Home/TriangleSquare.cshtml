@@ -1,4 +1,5 @@
-﻿@model float
+﻿@using System.Collections.Specialized
+@model float
 
 @{
     ViewBag.Title = "square";
@@ -6,13 +7,14 @@
 }
 
 @section scripts
-{
+{    
     @Scripts.Render("~/Scripts/default/triangle-square.js")
 }
 
 <h2>triangle square</h2>
 
 <p>
+    
     @{
         float square = Model;        
     }
@@ -20,8 +22,8 @@
     <h3>        
         <span class="square" style="color: @ViewBag.Color">@square</span>        
     </h3>
-
-    <label>
+        
+    <label class="color" title="change color!">
         Change color!
-    </label>
+    </label>    
 </p>

@@ -83,7 +83,7 @@ namespace MvcApplication1.App_Start
             kernel.Bind<IWeapon>().To<Bazuka>();
 
 //            for users
-            kernel.Bind<aspnetEntities>().ToMethod(e => new aspnetEntities());
+            kernel.Bind<BookShopEntities>().ToMethod(e => new BookShopEntities());            
             kernel.Bind<IUserRepository>().To<UserRepository>().InTransientScope();
 
             kernel.Bind<IMapper>().To<CommonMapper>().InSingletonScope();

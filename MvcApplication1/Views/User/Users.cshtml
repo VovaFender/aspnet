@@ -1,4 +1,4 @@
-﻿@model System.Collections.Generic.List<MvcApplication1.Models.user>
+﻿@model System.Collections.Generic.List<MvcApplication1.Models.User>
 
 @{
     ViewBag.Title = "Users";
@@ -15,9 +15,9 @@
         @foreach (var user in Model)
         {
             <tr>
-                <td>@user.id</td>
-                <td>@user.email</td>
-                <td>@user.user_role</td>
+                <td>@user.ID</td>
+                <td>@user.Email</td>
+                <td>@user.UserRole</td>
             </tr>
         }
     </div>

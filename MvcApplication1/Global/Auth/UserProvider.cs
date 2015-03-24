@@ -24,6 +24,7 @@ namespace MvcApplication1.Global.Auth
             {
                 return false;
             }            
+
             return userIdentity.User.InRoles(checkRole);
         }
 

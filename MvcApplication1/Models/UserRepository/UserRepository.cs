@@ -9,21 +9,22 @@ namespace MvcApplication1.Models
     public class UserRepository : IUserRepository
     {
         [Inject]
-        public aspnetEntities DBEntities { get; set; }
+        public BookShopEntities DBEntities { get; set; }
         
-        public IQueryable<user> Users 
+        public IQueryable<User> Users 
         {
-            get { return DBEntities.users; }            
+            get { return DBEntities.Users; }            
         }
 
-        public bool CreateUser(user instance)
-        {
-            DBEntities.users.Add(instance);
+        public bool CreateUser(User instance)
+        {            
+            DBEntities.Users.Add(instance);
             DBEntities.SaveChanges();
+            
             return true;
         }
 
-        public bool UpdateUser(user instance)
+        public bool UpdateUser(User instance)
         {
             throw new NotImplementedException();
         }
@@ -33,34 +34,34 @@ namespace MvcApplication1.Models
             throw new NotImplementedException();
         }
 
-        public user GetUser(string email)
+        public User GetUser(string email)
         {
-            var userByEmail = DBEntities.users.Where(u => String.Compare(u.email, email) == 0).FirstOrDefault();
+            var userByEmail = DBEntities.Users.Where(u => String.Compare(u.Email, email) == 0).FirstOrDefault();
             return userByEmail;
         }
 
-        public user GetUser(int id)
+        public User GetUser(int id)
         {
-            var userByID = DBEntities.users.Where(u => u.id == id).FirstOrDefault();
+            var userByID = DBEntities.Users.Where(u => u.ID == id).FirstOrDefault();
 
             return userByID;
         }
 
-        public string GetUserRole(user currUser)
+        public string GetUserRole(User currUser)
         {            
-            string userRole = DBEntities.userroles.Where(r => r.id == currUser.user_role).FirstOrDefault().name;
+            string userRole = DBEntities.UserRoles.Where(r => r.ID == currUser.User_Role).FirstOrDefault().Name;
 
             return userRole;
         }
-        public user Login(string email, string password)
-        {
-            var logUser = DBEntities.users.FirstOrDefault(u => string.Compare(u.email, email, true) == 0
-                                                               && u.password == password);
+        public User Login(string email, string password)
+        {            
+            var logUser = DBEntities.Users.FirstOrDefault(u => string.Compare(u.Email, email, true) == 0
+                                                               && u.Password == password);
             return logUser;
         }
-        public user Login(string email)
+        public User Login(string email)
         {
-            var logUser = DBEntities.users.FirstOrDefault(u => string.Compare(u.email, email, true) == 0);
+            var logUser = DBEntities.Users.FirstOrDefault(u => string.Compare(u.Email, email, true) == 0);
 
             return logUser;
         }

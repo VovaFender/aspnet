@@ -9,6 +9,6 @@ namespace MvcApplication1.Global.Auth
 {
     interface IUserProvider
     {
-        user User { get; set; }
+        User User { get; set; }
     }
 }

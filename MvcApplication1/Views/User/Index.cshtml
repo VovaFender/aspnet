@@ -1,7 +1,12 @@
-﻿
+﻿@model MvcApplication1.Models.User
+
 @{
-    ViewBag.Title = "user profile";
+    ViewBag.Title = "Profile";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>user profile page</h2>
+<h2>User Profile Page</h2>
+
+<h3>
+     @Html.DisplayForModel() 
+</h3>

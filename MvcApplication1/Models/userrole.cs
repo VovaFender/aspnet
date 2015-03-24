@@ -12,16 +12,16 @@ namespace MvcApplication1.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class userrole
+    public partial class UserRole
     {
-        public userrole()
+        public UserRole()
         {
-            this.users = new HashSet<user>();
+            this.Users = new HashSet<User>();
         }
     
-        public int id { get; set; }
-        public string name { get; set; }
+        public int ID { get; set; }
+        public string Name { get; set; }
     
-        public virtual ICollection<user> users { get; set; }
+        public virtual ICollection<User> Users { get; set; }
     }
 }

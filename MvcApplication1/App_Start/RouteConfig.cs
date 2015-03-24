@@ -17,7 +17,7 @@ namespace MvcApplication1
             routes.MapRoute(
                 name: "users",
                 url: "users",
-                defaults: new { controller = "User", action = "Users" });
+                defaults: new { controller = "User", action = "Users"});
 
             routes.MapRoute(
                 name: "UsersShow",

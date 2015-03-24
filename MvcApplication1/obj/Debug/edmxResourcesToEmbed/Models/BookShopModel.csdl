@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BookShopModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Book">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Year" Type="String" MaxLength="4" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Genre" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Writers" Relationship="Self.Writers_Books" FromRole="Books" ToRole="Writers" />
+  </EntityType>
+  <EntityType Name="UserRole">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Users" Relationship="BookShopModel.FK__Users__User_Role__1DE57479" FromRole="UserRole" ToRole="User" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="User_Role" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="UserRole" Relationship="BookShopModel.FK__Users__User_Role__1DE57479" FromRole="User" ToRole="UserRole" />
+    <Property Name="Password" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="BirthDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="Writer">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="BirthDate" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Books" Relationship="Self.Writers_Books" FromRole="Writers" ToRole="Books" />
+  </EntityType>
+  <Association Name="Writers_Books">
+    <End Role="Books" Type="Self.Book" Multiplicity="*" />
+    <End Role="Writers" Type="Self.Writer" Multiplicity="*" />
+  </Association>
+  <EntityContainer Name="BookShopEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Books" EntityType="Self.Book" />
+    <EntitySet Name="UserRoles" EntityType="Self.UserRole" />
+    <EntitySet Name="Users" EntityType="Self.User" />
+    <EntitySet Name="Writers" EntityType="Self.Writer" />
+    <AssociationSet Name="Writers_Books" Association="Self.Writers_Books">
+      <End Role="Books" EntitySet="Books" />
+      <End Role="Writers" EntitySet="Writers" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Users__User_Role__1DE57479" Association="BookShopModel.FK__Users__User_Role__1DE57479">
+      <End Role="UserRole" EntitySet="UserRoles" />
+      <End Role="User" EntitySet="Users" />
+    </AssociationSet>
+  </EntityContainer>
+  <Association Name="FK__Users__User_Role__1DE57479">
+    <End Type="BookShopModel.UserRole" Role="UserRole" Multiplicity="1" />
+    <End Type="BookShopModel.User" Role="User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserRole">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="User_Role" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

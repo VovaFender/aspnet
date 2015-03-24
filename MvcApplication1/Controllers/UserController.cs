@@ -29,18 +29,23 @@ namespace MvcApplication1.Controllers
         [Inject]
         public IAuthentication Auth { get; set; }
 
-        public user CurrentUser
+        public User CurrentUser
         {
             get { return ((UserIdentity) Auth.CurrentUser.Identity).User; }
         }
         public ActionResult Index()
         {
-            return View();
+            if (CurrentUser != null)
+            {
+                return View(CurrentUser);
+            }
+            
+            return RedirectToAction("Login", "Login");
         }
 
         public ActionResult Users(int? id)
         {
-            var users = new List<user>();
+            var users = new List<User>();
 
             if (id != null)
             {
@@ -81,7 +86,7 @@ namespace MvcApplication1.Controllers
             if (ModelState.IsValid)
             {
                 newViewUser.user_role = 2;
-                var newUser = (user)Mapper.Map(newViewUser, typeof(ViewUser), typeof(user));                
+                var newUser = (User)Mapper.Map(newViewUser, typeof(ViewUser), typeof(User));                
                 //make him standard user                
                 Repository.CreateUser(newUser);
 
