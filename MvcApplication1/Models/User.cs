@@ -30,6 +30,10 @@ namespace MvcApplication1.Models
 
         public virtual UserRole UserRole { get; set; }
 
+        public bool InRoles(string checkRole)
+        {
+            return true;
+        }
     }
 
 }
