@@ -1,0 +1,51 @@
+﻿@using System.Reflection.Emit
+@model MvcApplication1.App_Start.NinjectWebCommon.IWeapon
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>@Model.Kill()</p>
+
+@Html.ActionLink("All users", "Users", "User")
+
+@if (ViewBag.CurrentUser != null)
+{
+    using (Html.BeginForm("TriangleSquare", "Home", FormMethod.Get))
+    {
+        <fieldset>
+            <div class ="control-group">                
+                @Html.Label("triangle base", "triangle base", new {@class = "control-label"})
+                <div class="controls">
+                    @Html.TextBox("a", "", new {@class = "input-large"})
+                </div>
+            </div>
+        
+            <div class="control-group">
+                <label for="h" class="control-label">
+                    triangle height
+                </label>
+                <div class="controls">
+                    @Html.TextBox("h", "", new {@class = "input-large"})
+                </div>
+            </div>
+        
+            @Html.RadioButton("color", "red")
+            <span style="color: red">red <br /></span>
+            @Html.RadioButton("color", "blue")
+            <span style="color: blue">blue <br /></span>
+            @Html.RadioButton("color", "green", true)
+            <span style="color: green">green <br /></span>
+
+            <div class="form-actions">
+                <button type="submit" class="btn btn-primary">
+                    Square
+                </button>    
+            </div>                        
+
+        </fieldset>
+    }
+}

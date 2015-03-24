@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>MsSqlMetaDataProvider</id>
+    <version>1.0.0.0</version>
+    <authors>Dmitriy Krasnikov</authors>
+    <owners>Dmitriy Krasnikov</owners>
+    <projectUrl>http://mssqlmetadataprovide.codeplex.com/</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Library for exposing ms sql server database metadata tables as EF model. For templates and autocode generation.</description>
+    <releaseNotes />
+    <copyright>Copyright Dmitriy Krasnikov 2012</copyright>
+    <dependencies>
+      <dependency id="EntityFramework" version="4.3.1" />
+    </dependencies>
+  </metadata>
+</package>

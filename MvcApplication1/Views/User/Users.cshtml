@@ -1,0 +1,24 @@
+﻿@model System.Collections.Generic.List<MvcApplication1.Models.User>
+
+@{
+    ViewBag.Title = "Users";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Users list</h2>
+<h2>@ViewContext.Controller</h2>
+
+<table>
+    <th>id</th>
+    <th>name</th>
+    <div class="user">
+        @foreach (var user in Model)
+        {
+            <tr>
+                <td>@user.ID</td>
+                <td>@user.Email</td>
+                <td>@user.UserRole</td>
+            </tr>
+        }
+    </div>
+</table>

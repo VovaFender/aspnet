@@ -1,0 +1,65 @@
+﻿@using System.Web.Mvc.Html
+@model MvcApplication1.Models.ViewModels.ViewUser
+
+@{
+    ViewBag.Title = "sign up";
+    Layout = "~/Views/Shared/_Layout.cshtml";    
+}
+
+<h2>sign up</h2>
+
+@using (Html.BeginForm("Register", "User", FormMethod.Post, new { @class = "form-horizontal" }))
+{
+    <fieldset>
+        <div class="control-group">
+            <label class="control-label" for="Email">
+                Email
+            </label>
+            <div class="controls">
+                @Html.ValidationMessage("Email")
+                @Html.TextBox("Email", Model.email)
+            </div>
+        </div>
+        
+        <div class="control-group">
+            <label class="control-label" for="Password">
+                Password
+            </label>
+            <div class="controls">
+                @Html.ValidationMessage("Password")
+                @Html.Password("Password", Model.password)
+            </div>
+        </div>
+
+        <div class="control-group">
+            <label class="control-label" for="Confirm Password">
+                Confirm Password
+            </label>
+            <div class="controls">
+                @Html.ValidationMessage("ConfirmPassword")
+                @Html.Password("ConfirmPassword", Model.confirmPassword)
+            </div>
+        </div>        
+        
+        <div class="control-group">
+            <label class="control-label" for="FirstName">
+                Birth date
+            </label>
+            <div class="controls">
+                @Html.DropDownList("BirthDateDay", Model.BirthDateDayListItems, new {@class = "user-day"})                
+                @Html.DropDownList("BirthDateMonth", Model.BirthDateMonthListItems, new { @class = "user-month" })
+                @Html.DropDownList("BirthDateYear", Model.BirthDateYearListItems, new { @class = "user-year" })
+            </div>
+        </div>    
+
+        <div class="form-actions">
+            <button type="submit" class="btn btn-primary">
+                Register
+            </button>
+            @Html.ActionLink("Cancel", "Index", null, null, new { @class = "btn" })
+        </div>
+
+    </fieldset>
+}
+
+
