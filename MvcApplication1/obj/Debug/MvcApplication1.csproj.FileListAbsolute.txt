@@ -44,6 +44,7 @@ D:\Projects\MvcApplication1\MvcApplication1\obj\Debug\MvcApplication1.dll
 D:\Projects\MvcApplication1\MvcApplication1\obj\Debug\MvcApplication1.pdb
 D:\Projects\MvcApplication1\MvcApplication1\obj\Debug\MvcApplication1.csprojResolveAssemblyReference.cache
 D:\Projects\MvcApplication1\MvcApplication1\bin\MsSqlMetaDataProvider.dll
+<<<<<<< HEAD
 d:\Projects\aspnet-master\aspnet-master\MvcApplication1\bin\AutoMapper.Net4.dll
 d:\Projects\aspnet-master\aspnet-master\MvcApplication1\bin\MvcApplication1.dll.config
 d:\Projects\aspnet-master\aspnet-master\MvcApplication1\bin\MvcApplication1.dll
@@ -90,3 +91,5 @@ d:\Projects\aspnet-master\aspnet-master\MvcApplication1\bin\System.Web.WebPages.
 d:\Projects\aspnet-master\aspnet-master\MvcApplication1\obj\Debug\MvcApplication1.csprojResolveAssemblyReference.cache
 d:\Projects\aspnet-master\aspnet-master\MvcApplication1\obj\Debug\MvcApplication1.dll
 d:\Projects\aspnet-master\aspnet-master\MvcApplication1\obj\Debug\MvcApplication1.pdb
+=======
+>>>>>>> c9c7a29b96d40e35a83bfad4c68e45d1b85ab10e

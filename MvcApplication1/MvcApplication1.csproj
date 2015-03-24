@@ -192,7 +192,6 @@
     <Compile Include="Models\User.cs">
       <DependentUpon>BookShopModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\user.Validate.cs" />
     <Compile Include="Models\UserRepository\IUserRepository.cs" />
     <Compile Include="Models\UserRepository\UserRepository.cs" />
     <Compile Include="Models\UserRole.cs">
